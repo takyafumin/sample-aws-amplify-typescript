@@ -1,5 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
+import '@aws-amplify/ui-react/styles.css';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import { Amplify } from 'aws-amplify';
+import aws_exports from './aws-exports';
+import logo from './logo.svg'
+
+Amplify.configure(aws_exports);
 
 function App() {
   return (
@@ -15,11 +21,12 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React !
         </a>
       </header>
     </div>
   );
 }
 
-export default App;
+export default withAuthenticator(App);
+
